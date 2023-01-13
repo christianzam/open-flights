@@ -1,6 +1,7 @@
 module Api
   module V1
     class AirlinesController < ApplicationController
+
       def index
         airlines = Airline.all
         render json: AirlineSerializer.new(airlines, options).serialized_json
@@ -41,7 +42,7 @@ module Api
       private
 
       def airline_params
-        params.require.(:airline).permit(:name, :image_url)
+        params.require(:airline).permit(:name, :image_url)
       end
 
       def options
